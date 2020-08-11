@@ -1,4 +1,3 @@
-d
 db.collection('others').get().then((snapshot)=> {
     snapshot.docs.forEach(doc => {
         getIntro(doc);
