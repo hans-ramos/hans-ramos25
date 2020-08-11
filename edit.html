@@ -1,103 +1,37 @@
 <html>
     <head>
-       <title>Jester Darylhans Ramos</title>
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-       <!-- Bootstrap CSS -->
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-       <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <title>Jester Darylhans Ramos</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel ="stylesheet" href="style.css">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
-       <style>
-           body{
-               background-color:rgb(31,31,31);
-               font-family: 'Roboto Mono', monospace;
-               display:flex;
-               align-items: center;
-               justify-content: center;
-               align-content: center;
-           }
-            .bg-primary{
-                background-color: rgb(31,31,31)!important;
-            }
-            .bg-secondary{
-                background-color: rgb(0,255,152)!important;
-            }
-            div.divider{
-                background-color: rgb(0,255,152);
-                height:60px;
-                width:100%;
-                margin:auto;
-                padding:30px;
-            }
-            .text-light{
-                color: rgb(0,255,152)!important;
-            }
-            .text-dark{
-                color: rgb(31,31,31)!important;
-            }   
-            img.profile_pic{
-              height:300px;
-              width:300px;
-            }
-            img.logo{
-                height:100px;
-                width:100px;
-            }
-
-           div li{
-               list-style-type: none;
-           }
-
-          div ul li a div#facebook{
-                background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-292px -185px;
-                height:28px;
-                width:28px;
-                border-radius: 50%;
-                background-color: white;
-           }
-
-           div ul li a div#github{
-                background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-436px -221px;
-                height:28px;
-                width:28px;
-                border-radius: 50%;
-                background-color: white;
-           }
-
-           div ul li a div#linkedin{
-                background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-184px -293px;
-                height:28px;
-                width:28px;
-                border-radius: 50%;
-                background-color: white;
-           }
-
-          div ul li a#link:link{
-                color: rgb(0,255,152);
-                text-decoration: underline;
-            }
-
-            div ul li a#link:visited{
-                color: rgb(46,77,58);
-                text-decoration: underline;
-            }
-            div form{
-                display:grid;
-                grid-template-rows: 1fr;
-                margin:auto;
-                justify-items: center;
-                align-items: center;
-            }
-            form button, div form input{
-                margin:10px;
-            }
-
-            textarea#intro_area{
-                height:300;
-                width:500;
-            }
-            
-        </style>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyC40PHQz0i1SMGDe7_T3hfRvDCmzW43HBs",
+                authDomain: "ccapdev-resume-e6d6d.firebaseapp.com",
+                databaseURL: "https://ccapdev-resume-e6d6d.firebaseio.com",
+                projectId: "ccapdev-resume-e6d6d",
+                storageBucket: "ccapdev-resume-e6d6d.appspot.com",
+                messagingSenderId: "56710526730",
+                appId: "1:56710526730:web:825af4bddef85f9013ecf3"
+            };
+            // Initialize Firebase
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore()
+        </script>
     </head>
 
     <body>
@@ -201,33 +135,10 @@
                 <button onclick ="contacts_form()" type="button" class="btn text-dark col-2 bg-secondary" id="edit_contacts">Edit contact links</button>
             </div>
         </div>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyC40PHQz0i1SMGDe7_T3hfRvDCmzW43HBs",
-                authDomain: "ccapdev-resume-e6d6d.firebaseapp.com",
-                databaseURL: "https://ccapdev-resume-e6d6d.firebaseio.com",
-                projectId: "ccapdev-resume-e6d6d",
-                storageBucket: "ccapdev-resume-e6d6d.appspot.com",
-                messagingSenderId: "56710526730",
-                appId: "1:56710526730:web:825af4bddef85f9013ecf3"
-            };
-            // Initialize Firebase
-            var defaultProject = firebase.initializeApp(firebaseConfig);
-            var db = firebase.firestore()
-        </script>
-
-        <script>
+        
+        <script src="edit.js"></script>
+        
+        <!-- <script>
             firebase.auth().onAuthStateChanged(function(user){
                 if(user) {
                     //User is signed in
@@ -616,6 +527,6 @@
                 parent.append(list);
             }
 
-        </script>
+        </script> -->
     </body>
 </html>

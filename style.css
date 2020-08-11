@@ -1,0 +1,89 @@
+body{
+    background-color:rgb(31,31,31);
+    font-family: 'Roboto Mono', monospace;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+ .bg-primary{
+     background-color: rgb(31,31,31)!important;
+ }
+ .bg-secondary{
+     background-color: rgb(0,255,152)!important;
+ }
+ div.divider{
+     background-color: rgb(0,255,152);
+     height:60px;
+     width:100%;
+     margin:auto;
+     padding:30px;
+ }
+ .text-light{
+     color: rgb(0,255,152)!important;
+ }
+ .text-dark{
+     color: rgb(31,31,31)!important;
+ }   
+ img.profile_pic{
+   height:300px;
+   width:300px;
+ }
+ img.logo{
+     height:100px;
+     width:100px;
+ }
+
+div li{
+    list-style-type: none;
+}
+
+div ul li a div#facebook{
+     background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-292px -185px;
+     height:28px;
+     width:28px;
+     border-radius: 50%;
+     background-color: white;
+}
+
+div ul li a div#github{
+     background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-436px -221px;
+     height:28px;
+     width:28px;
+     border-radius: 50%;
+     background-color: white;
+}
+
+div ul li a div#linkedin{
+     background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-184px -293px;
+     height:28px;
+     width:28px;
+     border-radius: 50%;
+     background-color: white;
+}
+
+div ul li a#link:link{
+     color: rgb(0,255,152);
+     text-decoration: underline;
+ }
+
+ div ul li a#link:visited{
+     color: rgb(46,77,58);
+     text-decoration: underline;
+ }
+ div form{
+     display:grid;
+     grid-template-rows: 1fr;
+     margin:auto;
+     justify-items: center;
+     align-items: center;
+ }
+ form button, div form input{
+     margin:10px;
+ }
+
+ textarea#intro_area{
+     height:300;
+     width:500;
+ }
+ 
