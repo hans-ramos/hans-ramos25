@@ -1,0 +1,314 @@
+<html>
+    <head>
+       <title>Jester Darylhans Ramos</title>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+       <style>
+           body{
+               background-color:rgb(31,31,31);
+               font-family: 'Roboto Mono', monospace;
+           }
+            .bg-primary{
+                background-color: rgb(31,31,31)!important;
+            }
+            div.divider{
+                background-color: rgb(0,255,152);
+                height:60px;
+                width:100%;
+                margin:auto;
+                padding:30px;
+            }
+            .text-light{
+                color: rgb(0,255,152)!important;
+            }   
+            img.profile_pic{
+              height:300px;
+              width:300px;
+            }
+            img.logo{
+                height:100px;
+                width:100px;
+            }
+
+           div li{
+               list-style-type: none;
+           }
+
+          div ul li a div#facebook{
+                background: url(sprite.png)-292px -185px;
+                height:28px;
+                width:28px;
+                border-radius: 50%;
+                background-color: white;
+           }
+
+           div ul li a div#github{
+                background: url(sprite.png)-436px -221px;
+                height:28px;
+                width:28px;
+                border-radius: 50%;
+                background-color: white;
+           }
+
+           div ul li a div#linkedin{
+                background: url(sprite.png)-184px -293px;
+                height:28px;
+                width:28px;
+                border-radius: 50%;
+                background-color: white;
+           }
+
+          div ul li a#link:link{
+                color: rgb(0,255,152);
+                text-decoration: underline;
+            }
+
+            div ul li a#link:visited{
+                color: rgb(46,77,58);
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class ="container-fluid">
+            <nav class ="navbar navbar-expand sticky-top navbar-dark bg-primary">
+                <span class="navbar-brand mb-0 h1 text-light">Hans Ramos</span>
+                    <a class="nav-item nav-link text-light" href="#about">About Me</a>
+                    <a class="nav-item nav-link text-light" href="#education">Educational Background</a>
+                    <a class="nav-item nav-link text-light" href="#organizations">Organizations</a>
+                    <a class="nav-item nav-link text-light" href="#works">Past Works</a>
+                    <a class="nav-item nav-link text-light" href="#contacts">Contact Links</a>
+            </nav>
+            <div class="divider my-2">
+            </div>
+            <div class="bg-primary text-light row mx-auto"  id="about">
+                <h3 class="col-12">About Me</h3>
+            </div>
+            <div class="divider my-2">
+            </div>
+            <div class="bg-primary text-light row mx-auto"  id="education">
+                <h3 class="col-12">Education</h3>
+            </div>
+            <div class="divider my-2">
+            </div>
+            <div class="bg-primary text-light row mx-auto" id="organizations">
+                <h3 class="col-12">Organizations</h3>
+            </div>
+            <div class="divider my-2">
+            </div>        
+            <div class="bg-primary text-light row mx-auto"  id="works">
+                <h3 class="col-12">Past Works</h3>
+            </div>
+            <div class="divider my-2">
+            </div>
+            <div class="bg-primary text-light row mx-auto" id="contacts">
+                <h3 class="col-12">Contact Links</h3>
+            </div>
+        </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyC40PHQz0i1SMGDe7_T3hfRvDCmzW43HBs",
+                authDomain: "ccapdev-resume-e6d6d.firebaseapp.com",
+                databaseURL: "https://ccapdev-resume-e6d6d.firebaseio.com",
+                projectId: "ccapdev-resume-e6d6d",
+                storageBucket: "ccapdev-resume-e6d6d.appspot.com",
+                messagingSenderId: "56710526730",
+                appId: "1:56710526730:web:825af4bddef85f9013ecf3"
+            };
+            // Initialize Firebase
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore()
+        </script>
+        <script>
+            db.collection('others').get().then((snapshot)=> {
+                snapshot.docs.forEach(doc => {
+                    getIntro(doc);
+                })
+            })
+            function getIntro(doc){
+                let parent = document.getElementById("about");
+                let data = doc.data();
+                
+                let about = document.createElement("div");
+                let intro = document.createElement("p");
+                intro.setAttribute("id","intro");
+                intro.classList.add("center-text");
+                let pic = document.createElement("img");
+                pic.classList.add("rounded-circle", "float-left", "img-fluid","profile_pic");
+                intro.innerHTML = data.intro;
+                pic.src= data.picture;
+                
+                about.appendChild(pic);
+                about.appendChild(intro);
+                parent.appendChild(about);
+            }
+
+            db.collection('educations').orderBy('years').get().then((snapshot)=> {
+                snapshot.docs.forEach(doc => {
+                    getEducation(doc);
+                })
+            })
+
+            function getEducation(doc){
+                let parent = document.getElementById("education");
+                let data = doc.data();
+                let school = document.createElement("div");
+                school.classList.add("px-1");
+                let logo = document.createElement("img");
+                logo.classList.add("logo", "float-left", "m-2");
+                let list = document.createElement("ul");
+                let schoolName = document.createElement("li");
+                schoolName.setAttribute("id", "school");
+                let level = document.createElement("li");
+                level.setAttribute("id","level");
+                let years = document.createElement("li");
+                years.setAttribute("id","years");
+
+                logo.src = data.logo;
+                schoolName.innerHTML = data.school;
+                level.innerHTML = data.level;
+                years.innerHTML = data.years;
+
+                school.appendChild(logo);
+                list.appendChild(schoolName);
+                list.appendChild(level);
+                list.appendChild(years);
+                school.appendChild(list)
+                parent.appendChild(school);
+            }
+            
+            db.collection('organizations').orderBy('name').get().then((snapshot)=> {
+                snapshot.docs.forEach(doc => {
+                    getOrganization(doc);
+                })
+            })
+
+            function getOrganization(doc){
+                let parent = document.getElementById("organizations");
+                let data = doc.data();
+                let org = document.createElement("div");
+                let list = document.createElement("ul");
+                let orgName = document.createElement("li");
+                let position = document.createElement("li");
+                let years = document.createElement("li");
+                let yearStart = document.createElement("span");
+                let yearEnd = document.createElement("span");
+                orgName.setAttribute("id", "name");
+                position.setAttribute("id","position");
+                yearStart.setAttribute("id","year_started");
+                yearEnd.setAttribute("id","year_ended");
+
+                orgName.innerHTML = data.name;
+                position.innerHTML = ("Position: " + data.position);
+                yearStart.innerHTML = data.year_started;
+                yearEnd.innerHTML = data.year_ended;
+                years.innerHTML = ("Years active: " + yearStart.innerHTML + "-" + yearEnd.innerHTML);
+
+                list.appendChild(orgName);
+                list.appendChild(position);
+                list.appendChild(years);
+                org.appendChild(list);
+                parent.appendChild(org);
+            }
+           
+            db.collection('works').orderBy('title').get().then((snapshot)=> {
+                snapshot.docs.forEach(doc => {
+                    getWork(doc);
+                })
+            })
+
+            function getWork(doc){
+                let parent = document.getElementById("works");
+                let data = doc.data();
+                let work = document.createElement("div");
+                let list = document.createElement("ul");
+                let title = document.createElement("li");
+                let year = document.createElement("li");
+                let desc = document.createElement("li");
+                let link = document.createElement("a");
+                let githubLink = document.createElement("li");
+                title.setAttribute("id", "title");
+                year.setAttribute("id","year_started");
+                desc.setAttribute("id","description");
+                link.setAttribute("id","link");
+
+                title.innerHTML = data.title;
+                year.innerHTML = data.year_started;
+                desc.innerHTML = data.description;
+                link.href = data.link;
+                link.innerHTML = data.title;
+                githubLink.innerHTML = ("Github Link: ");
+
+                list.appendChild(title);
+                list.appendChild(year);
+                list.appendChild(desc);
+                githubLink.appendChild(link);
+                list.appendChild(githubLink);
+                work.appendChild(list);
+                parent.appendChild(work);
+            }
+
+            db.collection('others').get().then((snapshot)=> {
+                snapshot.docs.forEach(doc => {
+                    getContacts(doc);
+                })
+            })
+
+
+            function getContacts(doc){
+                let parent = document.getElementById("contacts");
+                let data = doc.data(); 
+                let list = document.createElement("ul");
+                let fb_bullet = document.createElement("li");
+                let fb_link = document.createElement("a");
+                let fb_div = document.createElement("div");
+                let git_bullet = document.createElement("li");
+                let git_link = document.createElement("a");
+                let git_div = document.createElement("div");
+                let li_bullet = document.createElement("li");
+                let li_link = document.createElement("a");
+                let li_div = document.createElement("div");
+                fb_div.setAttribute("id","facebook");
+                fb_div.classList.add("my-2");
+                git_div.setAttribute("id","github");
+                git_div.classList.add("my-2");
+                li_div.setAttribute("id","linkedin");
+                li_div.classList.add("my-2");
+
+                fb_link.href = data.facebook;
+                git_link.href = data.github;
+                li_link.href = data.linkedin;
+
+                fb_link.appendChild(fb_div);
+                git_link.appendChild(git_div);
+                li_link.appendChild(li_div);
+
+                fb_bullet.appendChild(fb_link);
+                git_bullet.appendChild(git_link);
+                li_bullet.appendChild(li_link);
+
+                list.appendChild(fb_bullet);
+                list.appendChild(git_bullet);
+                list.appendChild(li_bullet);
+                parent.append(list);
+            }
+
+        </script>
+    </body>
+</html>
