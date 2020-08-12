@@ -163,9 +163,16 @@ function cancel_edit_contacts(){
     document.getElementById("main_container").classList.remove("d-none");
 }
 
-db.collection('others').get().then((snapshot)=> {
-    snapshot.docs.forEach(doc => {
-        getIntro(doc);
+
+db.collection('others').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type == 'added'){
+            getIntro(change.doc);
+        }
+        if (change.type == 'modified'){
+            document.getElementById("intro").innerHTML = change.doc.data().intro;
+        }
     })
 })
 function getIntro(doc){
@@ -173,6 +180,7 @@ function getIntro(doc){
     let data = doc.data();
     
     let about = document.createElement("div");
+    about.setAttribute("id","about_id");
     let intro = document.createElement("p");
     intro.setAttribute("id","intro");
     intro.classList.add("center-text");
@@ -186,9 +194,13 @@ function getIntro(doc){
     parent.appendChild(about);
 }
 
-db.collection('educations').orderBy('years').get().then((snapshot)=> {
-    snapshot.docs.forEach(doc => {
-        getEducation(doc);
+
+db.collection('educations').orderBy('years').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type == 'added'){
+            getEducation(change.doc);
+        }
     })
 })
 
@@ -229,12 +241,17 @@ function getEducation(doc){
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('educations').doc(id).delete();
+        school.classList.add("d-none");
     })
 }
 
-db.collection('organizations').orderBy('name').get().then((snapshot)=> {
-    snapshot.docs.forEach(doc => {
-        getOrganization(doc);
+
+db.collection('organizations').orderBy('name').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type == 'added'){
+            getOrganization(change.doc);
+        }
     })
 })
 
@@ -276,12 +293,16 @@ function getOrganization(doc){
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('organizations').doc(id).delete();
+        org.classList.add("d-none");
     })
 }
 
-db.collection('works').orderBy('title').get().then((snapshot)=> {
-    snapshot.docs.forEach(doc => {
-        getWork(doc);
+db.collection('works').orderBy('title').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type == 'added'){
+            getWork(change.doc);
+        }
     })
 })
 
@@ -326,15 +347,23 @@ function getWork(doc){
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('data-id');
         db.collection('works').doc(id).delete();
+        work.classList.add("d-none");
     })
 }
 
-db.collection('others').get().then((snapshot)=> {
-    snapshot.docs.forEach(doc => {
-        getContacts(doc);
+db.collection('others').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if (change.type == 'added'){
+            getContacts(change.doc);
+        }
+        if (change.type == 'modified'){
+            document.getElementById("fb_link").href = change.doc.data().facebook;
+            document.getElementById("git_link").href = change.doc.data().github;
+            document.getElementById("li_link").href = change.doc.data().linkedin;
+        }
     })
 })
-
 
 function getContacts(doc){
     let parent = document.getElementById("contacts");
