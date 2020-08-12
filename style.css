@@ -47,7 +47,7 @@ div ul li a div#facebook{
 }
 
 div ul li a div#github{
-     background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-436px -221px;
+     background: url(sprite.png)-436px -221px;
      height:28px;
      width:28px;
      border-radius: 50%;
@@ -55,7 +55,7 @@ div ul li a div#github{
 }
 
 div ul li a div#linkedin{
-     background: url(https://github.com/hans-ramos/hans-ramos25/blob/master/sprite.png?raw=true)-184px -293px;
+     background: url(sprite.png)-184px -293px;
      height:28px;
      width:28px;
      border-radius: 50%;
